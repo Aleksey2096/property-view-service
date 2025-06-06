@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_contacts_table
+      author: Aliaksei
+      changes:
+        - createTable:
+            tableName: contacts
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: phone
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false

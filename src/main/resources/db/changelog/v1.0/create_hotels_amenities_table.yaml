@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_hotels_amenities_table
+      author: Aliaksei
+      changes:
+        - createTable:
+            tableName: hotels_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_hotels_amenities_hotel
+                    references: hotels(id)
+              - column:
+                  name: amenity_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_hotels_amenities_amenity
+                    references: amenities(id)
+        - addPrimaryKey:
+            tableName: hotels_amenities
+            columnNames: hotel_id, amenity_id
